@@ -24,7 +24,6 @@
     }
 
     .post-title {
-      max-width: 540px;
         font-family: $title-font-family;
         display: block;
         font-weight: 700;
@@ -65,14 +64,13 @@
         }
     }*/
 
-    .post-body {
-        p {
-            text-align: justify;
-            line-height: $post-line-height;
-            margin-bottom: 25px;
-        }
-    }
 
+    section[class="archive"]{
+      .post-date {
+      text-align: left;
+      padding-right: 0;
+      }
+    }
 
     .post-image {
         margin-bottom: 25px;

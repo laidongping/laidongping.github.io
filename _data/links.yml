@@ -1,8 +1,8 @@
 - url: /
-  title: 首<br>页
+  title: 首页
 
 - url: /about
-  title: 关<br>于
+  title: 关于
 
-- url: /about
-  title: 归<br>档
+- url: /archives
+  title: 归档

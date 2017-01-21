@@ -4,10 +4,10 @@
 @charset "utf-8";
 
 // Typography
-$base-font-family:  'PT Serif', 'STSongti-SC-Regular', 'SourceHanSansCN-Regular', serif;
+$base-font-family: 'PT Serif','STSongti-SC-Regular', Microsoft YaHei,WenQuanYi Micro Hei, 'SourceHanSansCN-Regular', serif;
 $caption-font-family: 'PT Serif', 'STSongti-SC-Regular', serif;
 $banner-font-family: "Sanchez", serif;
-$title-font-family: 'PT Serif', 'STSongti-SC-Regular', serif;
+$title-font-family: 'PT Serif', 'STSongti-SC-Black','STSongti-SC-Regular', serif;
 $base-font-size:   12pt;
 $base-font-weight: 400;
 $base-line-height: 1.5;
@@ -46,7 +46,6 @@ $img-location: '{{ site.baseurl }}/img/icon-location';
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        //"mixins",
         "normalize",
       //  "base",
         "layout",
@@ -66,7 +65,7 @@ div,ul,ol,li,dl,dt,dd,h1,h2,h3,h5,h6,p,b,i,a,header,mark,sup,sub,hr,br,video,aud
 figure{padding:16px 0px 0px 0px;margin:0px;}
 img,p,figure,h2,h3,pre,pre code{display:block;overflow:hidden;}
 img{border:0;margin:0px;}
-p + p{padding-top:0px;}
+p + p{padding-bottom:0px;}
 h1,h2,h3,h6,b,.top-navbar {font-weight:normal;white-space:normal;}
 
 /*font*/
@@ -81,14 +80,26 @@ h2{font-size:1.2em;line-height:33px;text-align:left;letter-spacing:1.2px;padding
 h3{font-size:1.0em;line-height:22px;text-align:left;letter-spacing:0.4px;color:#333;display:block;overflow:hidden;padding:16px 0px;}
 h4{font-size:1.0em;text-align:left;letter-spacing:0.4px;color:#333;padding:16px 0px;}
 h5{font-size:0.8em;padding:14px 0px;}
-h6{text-align: center; font-size:0.8em;padding:1em 0;}
+h6{text-align: center; font-size:0.8em;padding:0 ;}
 
 /*正文|图片|图片描述*/
-p{overflow:hidden;display:block;padding:10px 0px;font-size:1em;line-height:30px;letter-spacing:0.6px;}
-img {max-width:100%;padding:0px 0px 16px 0px;margin:0px auto;}
+p{overflow:hidden;display:block;padding:0 0 10px ;font-size:1em;line-height:30px;letter-spacing:0.6px;}
+img {max-width:100%;margin:0px auto;}
 img:after {content:attr(alt); display:block; margin-top:5px; color: $alt-color;line-height:20px;font-size:0.8em;letter-spacing:2.4px; }
 
 figcaption{display:block;color:#999;/*margin:0px 64px;*/padding:16px 0px;line-height:20px;font-size:0.8em;letter-spacing:2.4px;}
+.small-ornament > svg, .big-ornament > svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    fill: #ad1f1f;
+    fill-rule: evenodd;
+    shape-rendering: geometricPrecision;
+    margin-top: -5px;
+    padding: 0 0 32px 0;
+}
+
 
 /*链接*/
 body a { color: #c72323; white-space: nowrap; padding-bottom: 0px; position: relative; text-decoration: none; }
@@ -162,34 +173,3 @@ dl,dt,
     clear: both;
 }
 //-----------------------------------------
-
-
-.top-navbar {
-  font-family:'STSongti-SC-Regular';
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 100px;
-  height: 100px;
-
-  a {
-    display: inline-block;
-    color: $text-color;
-    padding: 30px 15px 25px;
-    margin-right: 0px;
-    margin-top: -5px;
-    text-transform: uppercase;
-    border-radius: 0 0 5px 5px;
-    border-bottom: 1px solid lighten($text-color, 10%);
-    transition: all ease-in-out .3s;
-
-    &:hover {
-      color: #f7f3ee;
-      border-bottom: none;
-      background-color: $text-color;
-      transform: translateY(5px);
-    }
-
-    &:after {content: none;}
-
-  }
-}
