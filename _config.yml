@@ -8,7 +8,7 @@
 # Site settings
 title: 东平的网志
 author: dongping
-author_link: /about
+author_link: http://laidongping.github.io/about
 author_description:
 email: laidongping#gmail.com
 description: > # this means to ignore newlines until "baseurl:"
