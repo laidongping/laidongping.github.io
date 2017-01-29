@@ -70,7 +70,7 @@ h1,h2,h3,h6,b,.top-navbar {font-weight:normal;white-space:normal;}
 
 /*font*/
 //@font-face{font-family:"SpecialSymbol";src: url("../images/template05/STSongti-SC-Regular.ttf") format("truetype");}
-body{border-top: 3px solid $text-color;font-family:$base-font-family;max-width:100%;padding:0px 0px 32px 0px;color:$text-color;background:$background-color;}
+body{font-family:$base-font-family;max-width:100%;padding:0px 0px 32px 0px;color:$text-color;background:$background-color;}
 h1,h2,p b,h3{font-family:'STSongti-SC-Black';}
 h4,h5,h6{font-family:'Songti TC';}
 
