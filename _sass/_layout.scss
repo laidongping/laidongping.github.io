@@ -1,187 +1,169 @@
-/*! layout */
-
-//"mixins/clearfix",
-
-  @mixin clearfix {
-      &:after {
-          content: "";
-          display: table;
-          clear: both;
-      }
-  }
-
-
-//  "mixins/breakpoints"
-@mixin min-breakpoint($point) {
-    @media only screen and (min-width: $point) {
-        @content;
-    }
-}
-
-@mixin max-breakpoint($point) {
-    @media only screen and (max-width: $point) {
-        @content;
-    }
-}
-
-//--------------------------------------------------
-
-header .logo-wrapper {
-    /* top: 0; */
-    width: 30px;
-    height: 30px;
-    border-radius:3px;
-    background: $alt-color;
-}
-header .fixed {
-    top: 10px;
-    position: fixed;
-    left: 50%;
-    margin-left: -350px;
-}
-
-header .logo-wrapper .logo {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: url(/img/logo.png) no-repeat center;
-}
-
-.nostyle-link:after {
-    background: none;
-}
-
-@media screen and (max-width: 760px) {
-    header .fixed {
-      right: 20px;
-      left: auto;   }
-    .toc {
-      right: 0;   }
-      }
-
-  .top-navbar {
+.top-navbar {
     font-family:$base-font-family;
     font-weight: bold;
     text-align: center;
     height: 110px;
     margin-bottom: 110px;
-    margin-top: -10px;
-    //margin-left: 250px;
-
-
+    margin-top: -5px;
 
     a {
       display: inline-block;
       color: $text-color;
-      padding: 25px 15px 20px;
+      padding: 50px 15px 20px;
       margin-right: 0px;
-
 
       text-transform: uppercase;
       border-radius: 0 0 5px 5px;
       border-bottom: 1px solid lighten($text-color, 10%);
-      transition: all ease-in-out .3s;
 
-      font-size: 1.2em;
+
+      font-size: 1em;
       line-height: 8px;
-    //  float: left;
       writing-mode: tb-rl;
       -webkit-writing-mode: vertical-rl;
       -webkit-text-orientation: upright;
 
       &:hover {
         color: $alt-color;
-        border-bottom: none;
-    //    background-color: $text-color;
-        transform: translateY(3px);
+        border-bottom: 1px solid transparent;
+        transition: all ease-in-out .3s;
+        transform: translateY(1px);
       }
 
-      &:after {content: none;}
-
-    }
-  }
 
 
-
-#banner {
-    //@include retina-background-image($img-banner);
-    background: url(../img/banner.png);
-    background-color: #8e8387;
-    outline: none;
-    display: block;
-    width: $banner-width;
-    height: $banner-height;
-    margin: 0 auto 35px;
-    position: relative; /* To ensure the bottom border is positioned correctly */
-
-    h1 {
-        // Font is included from Google Fonts automatically unless a custom banner is used
-        // See _config.yml for details
-        font-family: $banner-font-family;
-        font-size: 24px;
-        font-weight: 400;
-        text-align: center;
-        letter-spacing: 0.03em;
-        color: #fefefe;
-        position: absolute;
-        bottom: 20px;
-        width: 100%;
+      }
     }
 
-    &::after {
-        display: block;
-        position: absolute;
-        top: $banner-height;
-        left: $banner-border-offset;
-        content: "";
-        background: #443E40;
-        height: $banner-border-width;
-        width: $banner-width - ($banner-border-offset* 2);
-    }
 
-    @include min-breakpoint($image-splitting-breakpoint) {
-        margin-bottom: $banner-margin;
-    }
-}
+  .post::after {
+            background: url(../img/separator.png);
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-color: transparent;
+            content: "";
+            width: 100%;
+            max-width: 596px;
+            height: 42px;
+            display: block;
+            margin: 20px auto 50px;
+
+
+            // Force background size to remain constant and not scale down
+            background-size: 596px !important;
+
+            @media only screen and (min-width: 645px) {
+                margin-top: 5px;
+            }
+        }
+
+        .post-title {
+            font-family: $title-font-family;
+            display: block;
+            font-weight: 700;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1.4;
+
+            // Force default text colour [as post-header is wrapped by a link]
+            color: $text-color;
+
+            @media only screen and (min-width: 24px / 0.05) {
+                font-size: 5vw;
+            }
+
+            @media only screen and (min-width: $desktop-breakpoint) {
+                font-size: 42px;
+            }
+        }
+
+        .post-date {
+            display: block;
+            text-align: center;
+            color: $text-color;
+            margin: 15px 0 40px;
+        }
+
+        .post-image {
+            margin-bottom: 25px;
+            margin-top: 30px;
+
+            // Prevent any whitespace positioning issues
+            font-size: 0;
+
+            img,
+            video{
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+
+            & + .post-image {
+                margin-top: -5px;
+            }
+
+            & + p {
+                margin-top: 35px;
+            }
+        }
+
+
+        .archive{
+            margin: 60px 0 100px 0;
+
+            ul{
+                margin: 0 0 15px 0;
+                padding: 0;
+                list-style: none;
+
+                li{
+                    padding: 10px 15px 10px;
+                    a{
+                        color: $text-color;
+                        padding-bottom: 1px;
+                        border-bottom: 1px dashed transparent;
+                        &:hover {
+                          border-bottom: 1px dashed lighten($alt-color, 10%);
+                          transition: all ease-in-out .3s;
+                        }
+                     }
+
+                    .date{
+                        float:right;
+                        margin-left: 8px;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
 
 #footer {
     margin-top: 50px;
     text-align: center;
     color: #818181;
-    font-size: 10.5pt;
+    font-size: 0.8em;
 
-  /*  &::after {
-    //    @include retina-background-image($img-dude);
-        background: url(../img/dude.png);
-        display: block;
-        content: "";
-        width: 65px;
-        height: 158px;
-        margin: 20px auto 50px;
-    }*/
+
 
     a {
         // Overwrite default link color
-        color: #795f39;
+        color: #818181;
 
         &:hover {
             // ... but allow the hover color to work as normal
-            color: $alt-color;
+            color: #795f39;
         }
+
     }
 
     p {
         margin: 0 0 9px;
         line-height: 1;
-        font-size: 10.5pt;
+        font-size: 0.8em;
         max-width: 75%;
         margin-left: auto;
         margin-right: auto;
-
-        @include min-breakpoint($image-splitting-breakpoint) {
-            font-size: 14px;
-            line-height: 1;
-        }
     }
 }
 
@@ -189,15 +171,7 @@ section[role="main"] {
     width: 85%;
     margin: 0 auto;
 
-    @include min-breakpoint($desktop-breakpoint) {
+    @media only screen and ($desktop-breakpoint) {
         width: $layout-width;
     }
-}
-
-
-section[class="categories"]{padding: 32px 0;}
-
-section[class="archive"]{
-  border-top: 1px solid rgba(222,207,186,0.5);
-  padding: 32px 0;
 }

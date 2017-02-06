@@ -1,0 +1,40 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Typography
+$base-font-family: 'PT Serif','STSongti-SC-Regular', Microsoft YaHei,WenQuanYi Micro Hei, 'SourceHanSansCN-Regular', serif;
+$caption-font-family: 'PT Serif', 'STSongti-SC-Regular', serif;
+$banner-font-family: "Sanchez", serif;
+$title-font-family: 'PT Serif', 'STSongti-SC-Black','STSongti-SC-Regular', serif;
+$base-font-size:   12pt;
+$base-font-weight: 400;
+$base-line-height: 1.5;
+
+// Colours
+$text-color:       #333;
+$caption-text-color: #444;
+$border-color: #979797;
+$alt-color:        hsl(0, 70%, 46%);
+$background-color: #fefefe;
+$article-bg-color: hsl(35, 36%, 95%);
+$hover-color: #443E40;
+
+// Layout
+$content-width: 750px;
+$layout-width: 590px;
+
+// Breakpoints
+$desktop-breakpoint: $layout-width / 0.9;
+$image-splitting-breakpoint: 510px;
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+
+        "base",
+        "layout",
+        "pagination",
+        "syntax-highlighting"
+;

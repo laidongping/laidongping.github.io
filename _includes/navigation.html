@@ -1,11 +1,6 @@
-<header>
-
-<div class="logo-wrapper fixed J-logo-wrapper"><a href="/" class="logo nostyle-link"></a>
-        </div>
-<nav class="col span_10 top-navbar">
+<nav class="top-navbar">
   {% for link in site.data.links %}
-  <a href="{{ link.url }}" title="{{ link.title }}"
+  <a href="{{ link.url }}" title=""
      {% if page.title == link.title %}class="current-page"{% endif %}>{{ link.title }}</a>
   {% endfor %}
 </nav>
-</header>

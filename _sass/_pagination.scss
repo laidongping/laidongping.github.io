@@ -1,15 +1,18 @@
-@import "modules/pagination/variables";
-@mixin galileo-pagination {
+
     .pagination {
-        @include clearfix;
+          &:after {
+              content: "";
+              display: table;
+              clear: both;
+          }
         margin: -10px auto 0;
         display: block;
-        border-top: 1px solid $pagination-border-color;
+        border-top: 1px solid #ccc;
         text-align: center;
         align-items: center;
         justify-content: center;
 
-        @include min-breakpoint($pagination-splitting-breakpoint) {
+        @media only screen and (min-width: 715px) {
             margin: -25px auto 0;
             display: flex;
             border-top: 0;
@@ -20,14 +23,14 @@
         line-height: 21px;
 
         &:first-of-type {
-            //a { border-right: 1px solid $pagination-border-color; }
+            //a { border-right: 1px solid #ccc; }
         }
 
         &:last-of-type {
-            a { border-left: 1px solid $pagination-border-color; }
+            a { border-left: 1px solid #ccc; }
         }
 
-        @include min-breakpoint($pagination-splitting-breakpoint) {
+        @media only screen and (min-width: 715px) {
             // To ensure the top margin begins from the outer bounds of the contained pagination link
             line-height: 38px;
 
@@ -45,7 +48,7 @@
     .pagination-ellipsis {
         padding: 18px 8px 12px;
         min-width: 35px;
-        border-bottom: 1px solid $pagination-border-color;
+        border-bottom: 1px solid #ccc;
         color: $text-color;
         letter-spacing: 0.02em;
         clear: both;
@@ -64,13 +67,13 @@
             color: lighten($text-color, 30%);
         }
 
-        @include min-breakpoint($pagination-splitting-breakpoint) {
+        @media only screen and (min-width: 715px) {
             &:hover {
                 background: transparent;
             }
         }
 
-        @include min-breakpoint($pagination-widening-breakpoint) {
+        @media only screen and (min-width: 800px) {
             padding: 13px;
         }
     }
@@ -81,7 +84,7 @@
         border-color: $hover-color;
         color: $hover-color;
 
-        @include min-breakpoint($pagination-splitting-breakpoint) {
+        @media only screen and (min-width: 715px) {
             background: transparent;
         }
     }
@@ -91,7 +94,7 @@
         width: 50%;
         float: left;
 
-        @include min-breakpoint($pagination-splitting-breakpoint) {
+        @media only screen and (min-width: 715px) {
             float: none;
             width: initial;
         }
@@ -106,7 +109,7 @@
         top: 1px;
         margin-left: -15px;
 
-        @include min-breakpoint($pagination-splitting-breakpoint) {
+        @media only screen and (min-width: 715px) {
             margin-left: 0;
         }
     }
@@ -116,7 +119,7 @@
         top: 2px;
         margin-right: -15px;
 
-        @include min-breakpoint($pagination-splitting-breakpoint) {
+        @media only screen and (min-width: 715px) {
             margin-right: 0;
         }
     }
@@ -124,7 +127,7 @@
     .pagination-link-help {
         display: inline;
 
-        @include min-breakpoint($pagination-splitting-breakpoint) {
+        @media only screen and (min-width: 715px) {
             display: none;
         }
     }
@@ -133,4 +136,3 @@
         // Prevent hover effects
         pointer-events: none;
     }
-}

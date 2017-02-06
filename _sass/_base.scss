@@ -1,39 +1,89 @@
-/*! base */
+/*base*/
+html{-webkit-text-size-adjust:none;-ms-text-size-adjust:100%;-ms-touch-action:none;margin:0;padding:0;height:100%;}
+body{-webkit-overflow-scrolling:touch;-webkit-font-smoothing:antialiased;/*font-size:100%;margin:0;text-align:center;*/word-break:break-word;}
 
-/* Universal box-sizing as per https://css-tricks.com/box-sizing/ */
-html {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+div,ul,ol,li,dl,dt,dd,h1,h2,h3,h5,h6,p,b,i,a,header,mark,sup,sub,hr,br,video,audio,blockquote,time,figure,figcaption,img,footer,address,span,pre,code{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+
+figure{padding:16px 0px 0px 0px;margin:0px;}
+img,p,figure,h2,h3,pre,pre code{display:block;overflow:hidden;}
+img{border:0;margin:0px;}
+p + p{padding-bottom:0px;}
+h1,h2,h3,h6,b,.top-navbar {font-weight:normal;white-space:normal;}
+
+
+body{font-family:$base-font-family;/*width: 90%;*/max-width:750px;padding:0px 0px 32px 0px;margin: 0 auto;color:$text-color;background:$background-color;}
+h1,h2,p b,h3{font-family:'STSongti-SC-Black';}
+h4,h5,h6{font-family:'Songti TC';}
+
+/*title*/
+h1{font-size:2.4em;line-height:56px;padding:24px 20px 24px 20px;text-align: center;}
+h2{font-size:1.2em;line-height:33px;text-align:left;letter-spacing:1.2px;padding:16px 0px;}
+h3{font-size:1.0em;line-height:22px;text-align:left;letter-spacing:0.4px;color:#333;display:block;overflow:hidden;padding:16px 0px;}
+h4{font-size:1.0em;text-align:left;letter-spacing:0.4px;color:#333;padding:16px 0px;}
+h5{font-size:0.8em;padding:14px 0px;}
+h6{text-align: center; font-size:0.8em;padding:0;margin: -8px 16px 16px 16px;}
+
+
+/*正文|图片|图片描述*/
+p{overflow:hidden;display:block;padding:0 0 10px ;font-size:1em;line-height:1.9;letter-spacing:0.6px;}
+img {max-width:100%;margin:0px auto;}
+img:after {content:attr(alt); display:block; margin-top:5px; color: $alt-color;line-height:20px;font-size:0.8em;letter-spacing:2.4px; }
+
+.small-ornament > svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    fill: #ad1f1f;
+    fill-rule: evenodd;
+    shape-rendering: geometricPrecision;
+    margin-top: -10px;
+    padding: 0 0 32px 0;
 }
 
-/* Universal box-sizing as per https://css-tricks.com/box-sizing/ */
-*, *:before, *:after {
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
-}
 
-body {
-    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-    color: $text-color;
-    background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    text-rendering: optimizeLegibility; /* Beware of performance issues in mobile - see https://css-tricks.com/almanac/properties/t/text-rendering/ */
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+/*链接*/
+body a { color: #c72323; white-space: mormal; padding-bottom: 0px; position: relative; text-decoration: none; }
+body a:hover { color: #c72323; text-decoration: none; }
+.post-body a:after { position: absolute; top: 100%; left: 0; width: 100%; height: 2px; background: #c72323; content: ''; opacity: 0; -webkit-transition: opacity 0.5s, -webkit-transform 0.4s; -moz-transition: opacity 0.5s, -moz-transform 0.4s; transition: opacity 0.5s, transform 0.4s; -webkit-transform: scaleX(0); -moz-transform: scaleX(0); transform: scaleX(0); }
+.post-body a:hover::after, .post-body a:focus::after { opacity: 1; -webkit-transform: scaleX(1); -moz-transform: scaleX(1); transform: scaleX(1); }
 
-    &.is-offset {
-        margin-top: -195px;
-    }
-}
+/*无序有序列表*/
+ul{ position: relative; padding: 0; margin-left: 0; }
+.post-body ul > li:before { position: absolute; content: "•"; color: #c72323; left: -1em; }
+ol,ul{text-align:left;font-size:1.0em;line-height:1.9;letter-spacing:0.6px;white-space:normal;list-style-type:none;}
 
-a {
-    text-decoration: none;
-    color: #443E40;
-}
+ol {counter-reset:sectioncounter; position: relative; padding: 0 0 0 1.2em;}
+ol > li:before {content:counter(sectioncounter) ".";counter-increment:sectioncounter;color:#ce0b24; /*position:absolute;left:-1.5em;*/position:absolute;left: 0em;}
+
+.pagination-item:before { content: " "; }
+
+/*分割线*/
+hr{height:1px;overflow:hidden;border:none;background:#e47987;width:24px;margin:48px auto;}
+hr.seperatorlast{margin:64px auto 80px auto;}
+
+/* code | blockquote */
+article pre, article code { background-color: $article-bg-color; }
+article pre { padding: 1em; border-radius: 5px; }
+article code { font-family: "Source Code Pro", Menlo, Monaco, Inconsolata; padding: 2px 4px;border-radius: 3px;}
+
+blockquote { margin-top: 1em; margin-bottom: 1em; border-left: 2pt solid #c72323; padding-left: 0.9em; margin-left: -1em; color:#444;}
+blockquote > :last-child { margin-bottom: 0; }
+blockquote code { font-style: normal; font-weight: 400; }
+blockquote em { font-style: normal; }
+
+/* footnote */
+.footnotes { border-top: 1px solid rgba(222, 207, 186, 0.5); padding-top: 1em; margin-top: 2em; }
+.footnotes p {font-size:1em;line-height: 30px; padding:0;margin-bottom: 0;}
+sup > .footnote { /*margin-left: 0.2em;*/ font-style: normal; }
+
+/* table */
+table { margin: 0 auto; margin-top: 1.25em; margin-bottom: 1.25em; border-spacing: 2em 0.1em; padding-top: 0.5em; padding-bottom: 0.5em; border-collapse: separate; background-color: $article-bg-color; border-left: 2.5pt solid #c72323; }
+table td, table th { display: table-cell; vertical-align: inherit; border: 0; padding-top: 0; padding-bottom: 0; }
+table th { padding-bottom: 0.6em; }
+
+// make dt smaller
+dt {float: left;width: 30%;font-weight: bold;}
+dd {margin: 0 0 1em 0;float: right;width: 70%;}
+dl,.clearfix:before,.clearfix:after {content: " ";display: table;}
+dl,dt,.clearfix:after {clear: both;}
